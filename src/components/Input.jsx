@@ -4,14 +4,16 @@ import { addTodo,clearTodo } from "../actions/todo";
 const Input = () => {
   const [todo, setTodo] = useState("");
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addTodo(todo));
-  };
   const clear = (e) => {
     e.preventDefault();
     dispatch(clearTodo());
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addTodo(todo));
+    setTodo("");
+  };
+  
   return (
     <div className="d-grid">
       <div className="input-group mb-3">
